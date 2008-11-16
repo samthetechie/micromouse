@@ -19,3 +19,4 @@ static void inline softDelay(register unsigned int n)
 }
 
 #endif //_SOFTDELAY_H_
+

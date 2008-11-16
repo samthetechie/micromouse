@@ -1,10 +1,7 @@
 #include "led.h"
 #include "initPorts.h"
 
-
-
-
-void SetLeds (unsigned int led)
+/*void SetLeds (unsigned int led)
 {
 	LED8OFF;
 	LED7OFF;
@@ -69,7 +66,7 @@ void SetLedsUpper (unsigned char led)
 	if ( (led & (1<<1))>>1 ) LED10ON;
 	if ( (led & (1<<0))>>0 ) LED9ON;
 }
-
+*/
 void SetLedsLower (unsigned char led)
 {
 	LED8OFF;

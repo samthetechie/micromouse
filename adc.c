@@ -1,6 +1,5 @@
 #include <io.h>
 #include <signal.h>
-
 #include "adc.h"
 #include "led.h"
 
@@ -111,7 +110,7 @@ unsigned int GetIRFront(void)
 	// set up conversion memory control register
 	// read channels 0-3 using AVcc & AVss
 
-	ADC12MCTL1 = EOS | SREF_1 | INCH_A0;	//physical channel 0
+	ADC12MCTL1 = EOS | SREF_1 | INCH_A1;	//physical channel 0
 
 	ADC12CTL0 |= ENC;	// enable conversions
 	ADC12CTL0 |= ADC12SC;	// start adc
@@ -206,7 +205,7 @@ unsigned char GetDistFront (void)
 	// set up conversion memory control register
 	// read channels 0-3 using AVcc & AVss
 
-	ADC12MCTL1 = EOS | SREF_1 | INCH_A0;
+	ADC12MCTL1 = EOS | SREF_1 | INCH_A1;
 
 	ADC12CTL0 |= ENC;	// enable conversions
 	ADC12CTL0 |= ADC12SC;	// start adc
@@ -254,34 +253,6 @@ unsigned char GetDistBack (void)
 
 	return adcTable[ ((unsigned char)(ADC12MEM1>>4)) ];
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

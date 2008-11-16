@@ -24,10 +24,6 @@ void DriveToMiddleOfNewCellCorrecting (void);
 void SetCellCount(unsigned int);
 unsigned int GetCellCount(void);
 
-
-
-
-
-
+void TxCellInfo (void);
 
 #endif

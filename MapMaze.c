@@ -1,3 +1,4 @@
+#include <signal.h>
 #include "MapMaze.h"
 #include "MazeManipulation.h"
 #include "Config.h"
@@ -7,12 +8,14 @@
 #include "Alignment.h"
 #include "Motor2.h"
 #include "softDelay.h"
-
-
-
-
+#include "CellReservation.h"
+#include "RfPacket.h"
+#include "nRF24L01.h"
+#include "initPorts.h"
 
 static unsigned int CellCount = 1;
+extern unsigned char TxPacket[32];
+volatile extern unsigned char CTS;
 
 void SetCellCount(unsigned int Ccount)
 {
@@ -87,6 +90,7 @@ void AnalyseCellFB (void)
 
 	if (!Visits )		//if no visits to cell
 	{
+		SetThisCellMappedByThisMouse();
 		if (MouseHeading == NORTH)
 		{
 			if (IsWallFront()) AddWall(NORTH,MouseX,MouseY);	//	LED9ON;
@@ -124,48 +128,49 @@ unsigned char GetExitDir (void)
 	unsigned char sw=0;//smallest between s&w
 	unsigned char nesw=0;//smallest between ne&sw
 	unsigned char move = 0; //dir to move
-	unsigned char rn=0;	// reserved north
-	unsigned char rs=0;
-	unsigned char re=0;
-	unsigned char rw=0;	// reserved west
-
-
+	unsigned char rn = MOUSENUMBER & GetCellReserved(MouseX, MouseY-1);	// reserved north
+	unsigned char rs = MOUSENUMBER & GetCellReserved(MouseX, MouseY+1);
+	unsigned char re = MOUSENUMBER & GetCellReserved(MouseX+1, MouseY);
+	unsigned char rw = MOUSENUMBER & GetCellReserved(MouseX-1, MouseY);	// reserved west
 
 	if (Exits & NORTH)
 	{
-		rn=GetCellReserved(MouseX, MouseY-1);
-		if (!rn)
+		if (rn)
 		{
 			n= (GetVisits(MouseX,MouseY-1)<<4) | NORTH;
 		}
 	}
 	if (Exits & EAST)
 	{
-		re=GetCellReserved(MouseX+1, MouseY);
-		if (!re)
+		if (re)
 		{
 			e= (GetVisits(MouseX+1,MouseY)<<4) | EAST;
 		}
 	}
 	if (Exits & SOUTH)
 	{
-		rs=GetCellReserved(MouseX, MouseY+1);
-		if (!rs)
+		if (rs)
 		{
 			s= (GetVisits(MouseX,MouseY+1)<<4) | SOUTH;
 		}
-
 	}
 	if (Exits & WEST)
 	{
-		rw=GetCellReserved(MouseX-1, MouseY);
-		if (!rw)
+		if (rw)
 		{
 			w= (GetVisits(MouseX-1,MouseY)<<4) | WEST;
 		}
 	}
 
-	if ( (n==0xFF) && (e==0xFF) && (s==0xFF) && (w==0xFF) ) ; //do something like wait and re-do GED()
+	if ( (n==0xFF) && (e==0xFF) && (s==0xFF) && (w==0xFF) )
+	{
+		//do something like wait and re-do GED()
+		LED8ON;
+		softDelay(65535);
+		LED8OFF;
+		softDelay(65535);
+		return 0;
+	}
 
 	ne = 	(n <= e )	? n : e ;
 	sw = 	(s <= w )	? s : w ;
@@ -224,7 +229,7 @@ unsigned char IsMazeMapped (void)
 	unsigned int CurrentCellCount = GetCellCount();
 	unsigned int MaxCells = (MAZEX) * (MAZEY);
 
-	SetLedsLower( ((unsigned char)CurrentCellCount) | (((unsigned char)MaxCells) << 4 ) );
+	//SetLedsLower( ((unsigned char)CurrentCellCount) | (((unsigned char)MaxCells) << 4 ) );
 
 
 	if (CurrentCellCount >= MaxCells)
@@ -253,6 +258,18 @@ void DriveToMiddleOfNewCellCorrecting (void)
 	DriveForwardsHalf(25,1);
 }
 
+void TxCellInfo (void)
+{
+	unsigned char MouseX = GetMouseX();
+	unsigned char MouseY = GetMouseY();
+	while(!CTS);
+	dint();
+	AssembleMazePacket (MouseX,MouseY);
+	rfStandbyMode();
+	rfSendPacket2Module(&TxPacket[0],32);
+	rfTxMode();
+	eint();
 
+}
 
 

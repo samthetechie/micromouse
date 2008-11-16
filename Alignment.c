@@ -4,11 +4,8 @@
 #include "adc.h"
 #include "Motor2.h"
 
-
 static unsigned char LargeErrors = 0;
 static unsigned char SmallErrors = 0;
-
-
 
 unsigned char DoLRAlignmentForwards (void)
 {

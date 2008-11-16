@@ -1,7 +1,6 @@
 #ifndef MOTOR_INCL
 #define	MOTOR_INCL
 
-
 void MotorsOff( void );
 void Motor1Off( void );
 void Motor2Off( void );

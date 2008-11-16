@@ -4,7 +4,7 @@
 void SetupCpu (void);
 void SetupCode (void);
 void WaitForSwitch (void);
-
+unsigned char IfSwitch (void);
 
 
 #endif

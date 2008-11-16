@@ -1,6 +1,5 @@
 #include "Error.h"
 
-
 void ThrowError (unsigned int error)
 {
 
@@ -31,17 +30,6 @@ void ThrowError (unsigned int error)
 
 
 
-
-
-
-
-
-
-
-
-
-
-
 		default:
 			//Unknown Error
 			break;
@@ -50,20 +38,9 @@ void ThrowError (unsigned int error)
 
 
 
-
-
 while(1);
 
 }
-
-
-
-
-
-
-
-
-
 
 
 

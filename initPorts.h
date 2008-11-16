@@ -4,7 +4,6 @@
 //#include <stdint.h>
 #include <io.h>
 
-
 #define SWITCH ((P3IN >> 5) & 1 )
 
 
@@ -41,7 +40,7 @@
 #define LED8TOGGLE	P1OUT ^=  (1 << 7)
 
 
-
+/*
 #define LED10ON		P4OUT |=  (1 << 7)
 #define LED10OFF	P4OUT &= ~(1 << 7)
 #define LED10TOGGLE	P4OUT ^=  (1 << 7)
@@ -73,10 +72,7 @@
 #define LED9ON		P5OUT |=  (1 << 6)
 #define LED9OFF		P5OUT &= ~(1 << 6)
 #define LED9TOGGLE	P5OUT ^=  (1 << 6)
-
-
-
-
+*/
 
 
 
@@ -111,6 +107,17 @@
 #define M1P4ON     P5OUT |=  (1 << 4)
 #define M1P4OFF    P5OUT &= ~(1 << 4)
 #define M1P4TOGGLE P5OUT ^=  (1 << 4)
+
+
+// RF i/o bits
+#define RF_CE_BIT (1 << 4)
+#define RF_CE_HIGH (P2OUT |= RF_CE_BIT)
+#define RF_CE_LOW (P2OUT &= ~RF_CE_BIT)
+
+#define RF_IRQ_BIT (1 << 2)
+#define RF_IRQ_HIGH (P2IN & RF_IRQ_BIT)
+#define RF_IRQ_EDGE (P2IFG & RF_IRQ_BIT)
+#define RF_IRQ_EDGE_CLEAR (P2IFG &= ~RF_IRQ_BIT)
 
 
 

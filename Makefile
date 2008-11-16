@@ -1,6 +1,10 @@
 #
 # Makefile for msp430
 #
+#
+#
+#
+#
 # 'make' builds TARGET
 # 'make clean' deletes everything except source files and Makefile
 # 'make program' programs flash on msp430 with TARGET, then resets it.
@@ -18,7 +22,9 @@ MCU      = msp430x1612
 
 # List all the source files here
 # eg if you have a source file foo.c then list it here
-SOURCES = main.c cpuclockinit.c initPorts.c adc.c led.c AdcLut.c MazeManipulation.c MapMaze.c Motor2.c Setup.c DeadEndBlocking.c Alignment.c MazeSolving.c Error.c
+SOURCES = main.c cpuclockinit.c initPorts.c adc.c led.c AdcLut.c MazeManipulation.c \
+	MapMaze.c Motor2.c Setup.c DeadEndBlocking.c Alignment.c MazeSolving.c Error.c \
+	nRF24L01.c spi.c Interrupt.c RfPacket.c TimerA.c CellReservation.c
 
 # Use lines like those below to include your own libraries, include files (if you have any).
 # Changing a library won't cause a rebuild - use make clean then make.

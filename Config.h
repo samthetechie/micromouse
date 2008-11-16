@@ -28,12 +28,10 @@
 #define TARGETX (3)
 #define TARGETY (3)
 
-#define MOUSENUMBER (2)
+#define MOUSENUMBER (1)
 
 //#define MOTORFULL
 //#define MOTORHALF
-
-
 
 #endif
 

@@ -1,9 +1,6 @@
 #ifndef ADC_INCL
 #define ADC_INCL
 
-
-
-
 //#define IR0 ADC12MEM0	//front
 //#define IR1 ADC12MEM1	//back
 //#define IR2 ADC12MEM2	//left
@@ -19,9 +16,6 @@
 #define IR2IFG (ADC12IFG & (1<<2))
 #define IR3IFG (ADC12IFG & (1<<3))
 
-
-
-
 void AdcInit(void);
 void AdcStart(void);
 
@@ -35,6 +29,4 @@ unsigned char GetDistRight (void);
 unsigned char GetDistFront (void);
 unsigned char GetDistBack (void);
 
-
  #endif
-

@@ -5,9 +5,6 @@
 #include "Config.h"
 #include "Alignment.h"
 
-
-
-
 static void BothFullStepForward ( unsigned char step, unsigned int speed,  unsigned char ecc);
 static void BothFullStepBackward ( unsigned char step, unsigned int speed);
 static void SpotRotateFullStepRight ( unsigned char step, unsigned int speed);
@@ -26,8 +23,8 @@ static void LeftHalfStepBackward ( unsigned char, unsigned int );
 static void RightHalfStepForward ( unsigned char, unsigned int );
 static void RightHalfStepBackward ( unsigned char, unsigned int );
 
-static unsigned int OnTime = 6000;//10000
-static unsigned int OffTime = 10;//1000
+static unsigned int OnTime = 7000;//10000
+static unsigned int OffTime = 1;//1000
 
 void MotorsOff (void)
 {

@@ -4,7 +4,6 @@
 #include "cpuclockinit.h"
 #include "led.h"
 
-
 void cpuClockInit(void)
 {
 
@@ -25,7 +24,4 @@ void cpuClockInit(void)
 			softDelay(3000);
 		}
 	}
-
-
-
 }
