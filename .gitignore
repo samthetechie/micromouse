@@ -1,5 +1,7 @@
 tmp/*
 log/*
+docs/*
 *.o
 *.d
 *.elf
+Doxyfile
