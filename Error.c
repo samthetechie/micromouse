@@ -1,3 +1,4 @@
+//Not fully implemented; custom control for certain errors
 #include "Error.h"
 
 void ThrowError (unsigned int error)

@@ -1,3 +1,4 @@
+//Function to generate assembler code with specified number of NOP instructions; provides a custom delay
 #ifndef _SOFTDELAY_H_
 #define _SOFTDELAY_H_
 

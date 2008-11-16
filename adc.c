@@ -1,3 +1,4 @@
+//ADC control: returns distance in millimetres using AdcLut.c
 #include <io.h>
 #include <signal.h>
 #include "adc.h"

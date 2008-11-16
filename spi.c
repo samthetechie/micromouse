@@ -1,3 +1,4 @@
+//Functions to setup, transmit and receive data over the SPI interface
 #include <io.h>
 #include "spi.h"
 #include "softDelay.h"

@@ -1,3 +1,4 @@
+//Function to output unsigned bytes and unsigned integers to LEDs
 #include "led.h"
 #include "initPorts.h"
 

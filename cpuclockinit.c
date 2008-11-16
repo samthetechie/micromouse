@@ -1,3 +1,4 @@
+//Initialises and sets MCU to source main clock from 8MHz crystal, and sub-system clock from 32.768kHz watch crystal
 #include <io.h>
 #include "softDelay.h"
 #include "initPorts.h"

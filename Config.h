@@ -1,3 +1,4 @@
+//Contains main configuration: maze dimensions, maximum visit number, robot ID number
 #ifndef CONFIG_INCL
 #define CONFIG_INCL
 

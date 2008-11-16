@@ -1,3 +1,4 @@
+//Contains functions to setup MCU; a single place to put all the function calls required to initialise clocks, ports, interrupts, ADC, SPI, wireless module and timer
 #include "Setup.h"
 #include "Config.h"
 #include "adc.h"

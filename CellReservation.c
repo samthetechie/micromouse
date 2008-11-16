@@ -1,3 +1,4 @@
+//Functions for reserving and releasing cells
 #include <signal.h>
 #include "CellReservation.h"
 #include "MazeManipulation.h"

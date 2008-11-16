@@ -1,3 +1,4 @@
+//Contains functions to assemble different data packets, ready to be sent.  Contains function to disassemble received data packet and perform required actions
 #include "RfPacket.h"
 #include "MazeManipulation.h"
 #include "Config.h"

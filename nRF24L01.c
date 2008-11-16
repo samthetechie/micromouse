@@ -1,3 +1,4 @@
+//Functions to operate the wireless module; reading and writing data to module configuration registers, writing data transmit payload, reading data received payload, sending and receiving data packets
 #include <io.h>
 #include "nRF24L01.h"
 #include "spi.h"

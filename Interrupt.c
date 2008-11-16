@@ -1,3 +1,4 @@
+//Functions for all interrupts generated (IRQ line from RF module and TimerA interrupts)
 #include <signal.h>
 #include <io.h>
 #include <iomacros.h>

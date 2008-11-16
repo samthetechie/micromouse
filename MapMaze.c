@@ -1,3 +1,4 @@
+//Contains mapping algorithm function, function to decide if a wall is present based on ADC and function to rotate robot (if required) before moving to next cell
 #include <signal.h>
 #include "MapMaze.h"
 #include "MazeManipulation.h"

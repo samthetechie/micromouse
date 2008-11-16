@@ -1,3 +1,4 @@
+//Entry point of program; contains the main loop and controls robot operation
 #include <io.h>
 
 #include "softDelay.h"

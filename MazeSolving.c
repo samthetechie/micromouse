@@ -1,3 +1,4 @@
+//Not implemented; contains functions to instruct robot to move to a particular cell after maze has been mapped, using a flooding algorithm
 #include "MazeSolving.h"
 #include "Config.h"
 #include "MazeManipulation.h"

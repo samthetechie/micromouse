@@ -1,3 +1,4 @@
+//Initialises all I/O ports on MCU
 #include <io.h>
 #include "initPorts.h"
 #include "led.h"

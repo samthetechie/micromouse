@@ -1,3 +1,4 @@
+//Functions to correct heading of robot if detected as being off course
 #include "Alignment.h"
 #include "MazeManipulation.h"
 #include "Config.h"

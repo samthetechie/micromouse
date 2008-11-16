@@ -1,3 +1,4 @@
+//Contains functions to manipulate the Maze Array.  Reads and writes cell visits and cell walls.  Set which robot mapped a particular cell.  Reads and writes current robot coordinates and robot heading
 #include "MazeManipulation.h"
 #include "adc.h"
 #include "Config.h"

@@ -1,3 +1,4 @@
+//Contains functions to initialise, start and stop Timer A
 #include "TimerA.h"
 #include <io.h>
 

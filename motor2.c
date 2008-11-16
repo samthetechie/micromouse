@@ -1,3 +1,4 @@
+//Functions to drive the stepper motors, either in half step for full step mode
 #include "initPorts.h"
 #include "Motor2.h"
 #include "softDelay.h"

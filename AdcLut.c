@@ -1,3 +1,4 @@
+//LUT for transposing ADC values to millimetres
 const unsigned char adcTable[256]= {
 /*ADC Value to mm    (mm in 1st col, adc val in comments) */
 
